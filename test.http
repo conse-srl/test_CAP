@@ -1,0 +1,36 @@
+@service-url = http://localhost:4004
+@catService = {{service-url}}/odata/v2/cat
+
+#### ------------------------------------------------------------------------
+# HEAD CSRF Token
+# Authorization : admin + password
+### -----------------------------------------------------------------------
+# @name CSRFToken
+HEAD {{catService}}
+X-CSRF-Token: Fetch 
+
+@CSRFauthToken = {{CSRFToken.response.headers.x-csrf-token}}
+
+#### ------------------------------------------------------------------------
+# Disabilita/Abilita la lingua IT
+# Ristposta attesa 
+# HTTP/1.1 404
+# content-length: > 0
+# body json
+# Authorization : admin + password
+### -----------------------------------------------------------------------
+POST {{catService}}/takeAuthors
+Content-Type: application/json
+x-csrf-token: {{CSRFauthToken}}
+
+#### ------------------------------------------------------------------------
+# Disabilita/Abilita la lingua IT
+# Ristposta attesa 
+# HTTP/1.1 404
+# content-length: > 0
+# body json
+# Authorization : admin + password
+### -----------------------------------------------------------------------
+POST {{catService}}/booksCount
+Content-Type: application/json
+x-csrf-token: {{CSRFauthToken}}

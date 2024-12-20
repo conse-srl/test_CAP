@@ -1,0 +1,19 @@
+{
+    "name": "test-approuter",
+    "engines": {
+        "node": "^18"
+    },
+    "devDependencies": {
+        "@ui5/cli": "4.0.12"
+    },
+    "dependencies": {
+        "@sap/approuter": "18.0.0",
+        "@sap/xssec": "4.2.7"
+    },
+    "scripts": {
+        "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",
+        "start": "node starting.js",
+        "start2": "node node_modules/@sap/approuter/approuter.js"
+    },
+    "ui5": {}
+}

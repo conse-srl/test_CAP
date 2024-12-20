@@ -1,0 +1,71 @@
+{
+    "welcomeFile": "/client/index.html",
+    "authenticationMethod": "none",
+    "routes": [
+        {
+            "source": "^/public/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": false
+        },
+        {
+            "source": "^/api/v1/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": true
+        },
+        {
+            "source": "^/odata/v2/cat/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": true
+        },
+        {
+            "source": "^/odata/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": true
+        },
+        {
+            "source": "^/studio/images/(.*)$",
+            "target": "/studio/images/$1",
+            "localDir": "resources",
+            "cacheControl": "public, max-age=31536000, must-revalidate",
+            "authenticationType": "none"
+        },
+        {
+            "source": "^/studio/(.*)$",
+            "target": "/studio/$1",
+            "localDir": "resources",
+            "cacheControl": "no-cache, no-store, must-revalidate",
+            "authenticationType": "none",
+            "replace": {
+                "pathSuffixes": [
+                    "index.html",
+                    "login.html",
+                    "opaTests.qunit.html",
+                    "unitTests.qunit.html"
+                ],
+                "vars": [
+                    "ui5liburl"
+                ]
+            }
+        },
+        {
+            "source": "/(.*)",
+            "localDir": "resources",
+            "authenticationType": "none",
+            "replace": {
+                "pathSuffixes": [
+                    "index.html",
+                    "login.html",
+                    "opaTests.qunit.html",
+                    "unitTests.qunit.html"
+                ],
+                "vars": [
+                    "ui5liburl"
+                ]
+            }
+        }
+    ]
+}

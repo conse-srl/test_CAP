@@ -1,0 +1,65 @@
+{
+    "welcomeFile": "/studio/index.html",
+    "authenticationMethod": "none",
+    "routes": [
+        {
+            "source": "^/cat/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": false
+        },
+        {
+            "source": "^/odata/v2/cat/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": false
+        },
+        {
+            "source": "^/odata/(.*)$",
+            "destination": "srv_api",
+            "authenticationType": "none",
+            "csrfProtection": false
+        },
+        {
+            "source": "^/studio/images/(.*)$",
+            "target": "/studio/images/$1",
+            "localDir": "app/resources",
+            "cacheControl": "public, max-age=31536000, must-revalidate",
+            "authenticationType": "none"
+        },
+        {
+            "source": "^/studio/(.*)$",
+            "target": "/studio/$1",
+            "localDir": "app/resources",
+            "cacheControl": "no-cache, no-store, must-revalidate",
+            "authenticationType": "none",
+            "replace": {
+                "pathSuffixes": [
+                    "index.html",
+                    "login.html",
+                    "opaTests.qunit.html",
+                    "unitTests.qunit.html"
+                ],
+                "vars": [
+                    "ui5liburl"
+                ]
+            }
+        },
+        {
+            "source": "/(.*)",
+            "localDir": "app/resources",
+            "authenticationType": "none",
+            "replace": {
+                "pathSuffixes": [
+                    "index.html",
+                    "login.html",
+                    "opaTests.qunit.html",
+                    "unitTests.qunit.html"
+                ],
+                "vars": [
+                    "ui5liburl"
+                ]
+            }
+        }
+    ]
+}

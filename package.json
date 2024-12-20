@@ -1,0 +1,39 @@
+{
+  "name": "test_CAP",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "8.6.0",
+    "@cap-js-community/odata-v2-adapter": "^1.13.8",
+    "express": "^4.21.2",
+    "@sap/xssec": "^4.2.7",
+    "@cap-js/hana": "^1.5.2"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.8.0",
+    "@cap-js/sqlite": "^1.7.8",
+    "@sap/cds-dk": "^8.6.1",
+    "npm-run-all": "^4.1.5"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "run:all": "run-p run:server run:web",
+    "run:web": "node app/starting.js",
+    "run:web2": "node app/node_modules/@sap/approuter/approuter.js",
+    "run:server": "npx cds-serve --to odata"
+  },
+  "sapux": [
+    "app/admin-books",
+    "app/browse"
+  ],
+  "cds": {
+    "requires": {
+    },
+    "sql": {
+      "native_hana_associations": false
+    }
+  }
+}
