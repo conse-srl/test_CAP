@@ -2,7 +2,7 @@
 "use strict";
 global.__base = __dirname;
 const cds =  require("@sap/cds");
-const proxy = require('@sap/cds-odata-v2-adapter-proxy');
+//const proxy = require('@sap/cds-odata-v2-adapter-proxy');
 const cov2ap = require("@cap-js-community/odata-v2-adapter");
 
 const port = process.env.PORT || 4004;

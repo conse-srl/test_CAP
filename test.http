@@ -34,3 +34,16 @@ x-csrf-token: {{CSRFauthToken}}
 POST {{catService}}/booksCount
 Content-Type: application/json
 x-csrf-token: {{CSRFauthToken}}
+
+#### ------------------------------------------------------------------------
+# saveElements
+# Ristposta attesa 
+# HTTP/1.1 404
+# content-length: > 0
+# body json
+### -----------------------------------------------------------------------
+POST {{catService}}/saveElements
+Content-Type: application/json
+x-csrf-token: {{CSRFauthToken}}
+
+< ./saveElementsInsert.json

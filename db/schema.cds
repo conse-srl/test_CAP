@@ -29,3 +29,21 @@ entity Genres : sap.common.CodeList {
   parent   : Association to Genres;
   children : Composition of many Genres on children.parent = $self;
 }
+
+type NewElements : {
+    ID                         : UUID;
+    binding                    : BindingType;
+};
+
+type BindingType : managed {
+    ID                         : UUID;
+    bindingValue               : LargeString;
+};
+
+type saveNewElement : {
+    parentAggregationID : UUID;
+    displayPosition     : Integer;
+    element             : NewElements;
+};
+
+type saveNewElements : array of saveNewElement;

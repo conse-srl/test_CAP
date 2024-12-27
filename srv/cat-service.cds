@@ -19,4 +19,9 @@ service CatalogService @(impl: './cat-service.js') @(path: '/cat'){
     action booksCount()         returns Integer;
 
   event OrderedBook : { book: Books:ID; quantity: Integer; buyer: String };
+
+  type saveNewElements : my.saveNewElements;
+
+  action saveElements(elements : saveNewElements) returns LargeString;
+  
 }

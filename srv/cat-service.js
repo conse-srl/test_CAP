@@ -21,7 +21,7 @@
 //     if (!book.stock || quantity > book.stock) return req.error (409, `${quantity} exceeds stock for book #${id}`)
 
 //     // Reduce stock in database and return updated stock value
-    // await UPDATE (Books, id) .with ({ stock: book.stock -= quantity })
+// await UPDATE (Books, id) .with ({ stock: book.stock -= quantity })
 //     return book
 //   })
 
@@ -37,19 +37,29 @@
 
 // module.exports = CatalogService
 
-const cds =  require("@sap/cds");
+const cds = require("@sap/cds");
 
 module.exports = cds.service.impl(async function () {
-this.on("takeAuthors", async ()=>{
-    const { Authors } = cds.entities("sap.capire.bookshop");
-    var aSessions = await cds.run(SELECT.from(Authors));
-    await new Promise(resolve => setTimeout(resolve, 5000)); 
-return JSON.stringify(aSessions);
 
-} );
-this.on("booksCount", async ()=>{ 
-    const { Books } = cds.entities("sap.capire.bookshop");
+    this.on("takeAuthors", async () => {
+        const { Authors } = cds.entities("sap.capire.bookshop");
+        var aSessions = await cds.run(SELECT.from(Authors));
+        await new Promise(resolve => setTimeout(resolve, 5000));
+        return JSON.stringify(aSessions);
 
-    var aBooks = await cds.run(SELECT.from(Books));
-    return aBooks.length;});
+    });
+
+    this.on("booksCount", async () => {
+        const { Books } = cds.entities("sap.capire.bookshop");
+
+        var aBooks = await cds.run(SELECT.from(Books));
+        return aBooks.length;
+    });
+
+    this.on("saveElements", async () => {
+        const { Books } = cds.entities("sap.capire.bookshop");
+
+        var aBooks = await cds.run(SELECT.from(Books));
+        return aBooks.length;
+    });
 });

@@ -1,0 +1,22 @@
+{
+    "elements": [
+        {
+            "parentAggregationID": "8f57f9fe-6ae6-11eb-9439-0242ac130002",
+            "displayPosition": 5,
+            "element": {
+                "ID": "q82863cb-89f3-4df0-9dbc-8222e4b51a26",
+                "binding": {
+                    "bindingValue" : "{Materials>}"
+                }
+            }
+        },
+        {
+            "parentAggregationID": "9af5c732-6da3-4124-be57-d569832feb53",
+            "displayPosition": 7,
+            "element": {
+                "ID": "q67cee78-74ee-11eb-9439-0242ac130002",
+                "binding": null
+            }
+        }
+    ]
+}
