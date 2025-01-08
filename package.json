@@ -7,7 +7,7 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "8.6.0",
-    "@cap-js-community/odata-v2-adapter": "^1.13.8",
+    "@cap-js-community/odata-v2-adapter": "^1.14.0",
     "express": "^4.21.2",
     "@sap/xssec": "^4.2.7",
     "@cap-js/hana": "^1.5.2"
@@ -30,8 +30,7 @@
     "app/browse"
   ],
   "cds": {
-    "requires": {
-    },
+    "requires": {},
     "sql": {
       "native_hana_associations": false
     }
