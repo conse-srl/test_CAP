@@ -56,6 +56,14 @@ module.exports = cds.service.impl(async function () {
         return aBooks.length;
     });
 
+    this.on("CREATE", "Binding", async (req) => {
+        const { Binding } = cds.entities("sap.capire.bookshop");
+        var insert = [];
+        insert.push(INSERT.into(Binding).entries(Object.assign({}, req.data)));
+
+        await cds.run(insert);
+    });
+
     this.on("saveElements", async () => {
         const { Books } = cds.entities("sap.capire.bookshop");
 

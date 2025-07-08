@@ -1,5 +1,5 @@
 {
-    "welcomeFile": "/client/index.html",
+    "welcomeFile": "/studio/index.html",
     "authenticationMethod": "none",
     "routes": [
         {
@@ -12,19 +12,19 @@
             "source": "^/api/v1/(.*)$",
             "destination": "srv_api",
             "authenticationType": "none",
-            "csrfProtection": true
+            "csrfProtection": false
         },
         {
-            "source": "^/odata/v2/cat/(.*)$",
+            "source": "^/v2/proxy/odata(.*)$",
             "destination": "srv_api",
             "authenticationType": "none",
-            "csrfProtection": true
+            "csrfProtection": false
         },
         {
             "source": "^/odata/(.*)$",
             "destination": "srv_api",
             "authenticationType": "none",
-            "csrfProtection": true
+            "csrfProtection": false
         },
         {
             "source": "^/studio/images/(.*)$",

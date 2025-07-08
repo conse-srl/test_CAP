@@ -9,7 +9,7 @@
             "csrfProtection": false
         },
         {
-            "source": "^/odata/v2/cat/(.*)$",
+            "source": "^/v2/proxy/odata(.*)$",
             "destination": "srv_api",
             "authenticationType": "none",
             "csrfProtection": false

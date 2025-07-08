@@ -1,15 +1,28 @@
 /*eslint-env node, es6 */ /*eslint no-console: 0,*/
 "use strict";
 global.__base = __dirname;
-const cds =  require("@sap/cds");
+const cds = require("@sap/cds");
 //const proxy = require('@sap/cds-odata-v2-adapter-proxy');
 const cov2ap = require("@cap-js-community/odata-v2-adapter");
+const compression = require("compression");
 
 const port = process.env.PORT || 4004;
 
+// handle bootstrapping events...
+function shouldCompress(req, res) {
+    const type = res.getHeader("Content-Type");
+    if (type && typeof type === "string" && type.startsWith("multipart/mixed")) {
+        return true;
+    }
+    // fallback to standard filter function
+    return compression.filter(req, res);
+}
+
 cds.on('bootstrap', (app) => {
 
-    app.use(cov2ap( {returnPrimitiveNested: false}));
+    app.use(cov2ap({ path: 'v2/proxy', returnPrimitiveNested: false }));
+
+    app.use(compression({ filter: shouldCompress }));
 
     //app.use(proxy({ path: 'v2/proxy', ieee754Compatible: true, port: port, returnPrimitiveNested: false }));// ieee754Compatible: true }));
 

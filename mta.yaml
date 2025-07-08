@@ -17,12 +17,14 @@ modules:
     build-parameters:
       builder: npm
     provides:
-      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+      - name: srv_api
         properties:
-          srv-url: ${default-url}
+          url: ${default-url}
     requires:
       - name: test_CAP-auth
       - name: test_CAP-db
+      - name: test_CAP-destination_service
+      - name: test_CAP-connectivity_service
 
   - name: test_CAP-db-deployer
     type: hdb
@@ -34,7 +36,7 @@ modules:
 
   - name: test_CAP-web
     type: html5
-    path: dist
+    path: app
     parameters:
       memory: 512M
       disk-quota: 512M
@@ -54,10 +56,25 @@ resources:
       service-plan: application
       path: ./xs-security.json
       config:
-        xsappname: test_CAP-${org}-${space}
+        xsappname: test_CAP-auth
         tenant-mode: dedicated
+
   - name: test_CAP-db
     type: com.sap.xs.hdi-container
     parameters:
       service: hana
       service-plan: hdi-shared
+    properties:
+      hdi-container-name: ${service-name}
+
+  - name: test_CAP-destination_service
+    parameters:
+      service-plan: lite
+      service: destination
+    type: org.cloudfoundry.managed-service
+
+  - name: test_CAP-connectivity_service
+    parameters:
+      service-plan: lite
+      service: connectivity
+    type: org.cloudfoundry.managed-service

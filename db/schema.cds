@@ -1,4 +1,4 @@
-using { Currency, managed, sap } from '@sap/cds/common';
+using { Currency, cuid, managed, sap } from '@sap/cds/common';
 namespace sap.capire.bookshop;
 
 entity Books : managed {
@@ -29,6 +29,15 @@ entity Genres : sap.common.CodeList {
   parent   : Association to Genres;
   children : Composition of many Genres on children.parent = $self;
 }
+
+entity Binding : cuid{
+        filters      : array of Filter;
+};
+
+type Filter : {
+    value1          : LargeString;
+    value2          : LargeString;
+};
 
 type NewElements : {
     ID                         : UUID;

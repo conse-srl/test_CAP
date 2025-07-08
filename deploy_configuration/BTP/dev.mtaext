@@ -1,0 +1,15 @@
+_schema-version: "3.1"
+ID: test_CAP.dev
+extends: test_CAP
+
+parameters:
+  url_waf: dev.wispin.cloud
+  srv_instances: 1
+
+modules:
+  - name: test_CAP-web
+    parameters:
+      routes:
+        - route: ${url_waf}
+          no-hostname: true
+        - route: ${default-url}

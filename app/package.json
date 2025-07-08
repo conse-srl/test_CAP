@@ -1,14 +1,14 @@
 {
     "name": "test-approuter",
     "engines": {
-        "node": "^18"
+        "node": "^22"
     },
     "devDependencies": {
-        "@ui5/cli": "4.0.12"
+        "@ui5/cli": "4.0.19"
     },
     "dependencies": {
-        "@sap/approuter": "18.0.0",
-        "@sap/xssec": "4.2.7"
+        "@sap/approuter": "20.5.3",
+        "@sap/xssec": "4.8.0"
     },
     "scripts": {
         "build": "ui5 build --clean-dest --include-task=generateManifestBundle generateCachebusterInfo",

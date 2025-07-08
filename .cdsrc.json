@@ -1,4 +1,19 @@
 {
+    "log": {
+        "levels": {
+            "sqlite": "warning",
+            "cds.serve": "warning"
+        }
+    },
+    "runtime": {
+        "allow_upsert": false
+    },
+    "features": {
+        "with_parameters": false,
+        "fiori_preview": false,
+        "odata_new_adapter": false,
+        "cds_validate": false
+    },
     "cov2ap": {
         "plugin": false
     }

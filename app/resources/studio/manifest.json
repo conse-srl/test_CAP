@@ -22,7 +22,7 @@
 		},
 		"dataSources": {
 			"cat": {
-				"uri": "/odata/v2/cat/",
+				"uri": "/v2/proxy/odata/cat/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -30,7 +30,7 @@
 				}
 			},
 			"catV4": {
-				"uri": "/cat/",
+				"uri": "/odata/cat/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -86,13 +86,9 @@
 					"lazy": true
 				}
 			},
-			"components": {
-
-			}
+			"components": {}
 		},
-		"componentUsages": {
-
-		},
+		"componentUsages": {},
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
@@ -151,14 +147,14 @@
 			"routes": [
 				{
 					"pattern": "",
-					"name": "home",
-					"target": "home"
+					"name": "App",
+					"target": "App"
 				}
 			],
 			"targets": {
-				"home": {
-					"viewId": "home",
-					"viewName": "Home"
+				"App": {
+					"viewId": "App",
+					"viewName": "App"
 				}
 			}
 		}

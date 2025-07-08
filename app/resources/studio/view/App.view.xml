@@ -11,7 +11,7 @@
         id="app"
 		title="Test">
         <content>
-		<f:SimpleForm
+		<!-- <f:SimpleForm
 				layout="ResponsiveGridLayout"
 				editable="true"
 				adjustLabelSpan="false"
@@ -33,6 +33,33 @@
                 <Text id="booksCount" text="{localHomeView>/booksCount}"/>
 
                 
+		</f:SimpleForm> -->
+        <f:SimpleForm
+				layout="ResponsiveGridLayout"
+				editable="true"
+				adjustLabelSpan="false"
+				labelSpanXL="2"
+				labelSpanL="2"
+				labelSpanM="3"
+				labelSpanS="5">
+        <Button
+                text="Click - for read"
+                press="onRead" 
+        />
+        <Button
+                text="Click - for create"
+                press="onInsert" 
+        />
+        <Button
+                text="Click - for update"
+                press="onUpdate"
+        />
+        <Button
+                text="Click - for delete"
+                press="onDelete"
+        />
+        <Label text="Value on DB" />
+        <Text text="{localHomeView>/binding}"/>
 		</f:SimpleForm>
         </content>
     </Page>
